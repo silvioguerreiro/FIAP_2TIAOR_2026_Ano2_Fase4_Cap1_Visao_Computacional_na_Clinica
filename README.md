@@ -165,7 +165,9 @@ Em 20/11/2026 os cinco notebooks foram executados no Google Colab, em ordem e na
 - **O recall baixo da ResNet50 na faixa de 0 a 17 anos se repetiu** (ver Ir Além 1).
 - **O download pode esbarrar no limite de requisições do servidor.** Na primeira passagem, 36 das 5.552 imagens foram recusadas com o erro 429 e o notebook 01 parou na verificação do download. A segunda tentativa retomou de onde parou e terminou em 1,5 minuto. Depois do teste, `src/nih_remoto.py` passou a esperar e a tentar de novo, sozinho, as imagens recusadas.
 
-Não verificado nesta entrega: a abertura dos notebooks no Colab diretamente a partir deste repositório no GitHub; a nova versão de `src/nih_remoto.py` contra um erro 429 real do servidor (só contra servidor simulado); a execução nativa do app em simulador iOS e em emulador Android; a variação dos resultados entre sementes de treino.
+**Teste a partir do GitHub.** Em 20/11/2026, depois da publicação, este repositório foi clonado no Google Colab (Python 3.13.18, sem GPU) e os notebooks 01, 03b e 04 foram executados sem erro, em 10,9 minutos. O notebook 01 baixou as 5.552 imagens sem nenhuma recusa do servidor e gerou o mesmo manifesto e as mesmas imagens processadas, byte a byte; os arquivos CSV de `data/` ficaram idênticos aos do repositório. Só mudaram os arquivos de figura que esses notebooks regravam. Os notebooks 02 e 03, de treino, não foram repetidos nesse teste.
+
+Não verificado nesta entrega: a nova versão de `src/nih_remoto.py` contra um erro 429 real do servidor (só contra servidor simulado, pois no teste a partir do GitHub o erro não ocorreu); a execução nativa do app em simulador iOS e em emulador Android; a variação dos resultados entre sementes de treino.
 
 ## 🛡️ Ética, LGPD e boas práticas
 
@@ -299,6 +301,8 @@ Sementes fixas (42) em todas as etapas. Os resultados de treino podem variar lig
 
 ## 🗃 Histórico de lançamentos
 
+* 0.1.1 - 20/11/2026
+    * Registro do teste feito no Google Colab a partir deste repositório, depois da publicação.
 * 0.1.0 - 20/11/2026
     * Entrega da Fase 4, Cap 1: pré-processamento (Parte 1), CNN do zero e Transfer Learning com ResNet50 (Parte 2), protótipo Flask, Ir Além 1 (fairness), Ir Além 2 (app React Native, backend Flask e vídeo), relatórios, prints, registro do teste no Google Colab e documentação.
 

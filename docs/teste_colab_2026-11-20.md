@@ -158,3 +158,20 @@ teste,média dos dois,60+,199,103,0.883,0.229,0.887
 ```
 {"inicio_utc": "2026-11-20 21:20:51", "colab": "release-colab-external-images_20261118-060058_RC00", "python": "3.13.16", "bibliotecas": "numpy 2.4.6 | pandas 2.2.3 | scikit-learn 1.6.1 | scipy 1.16.3 | opencv 4.14.0 | matplotlib 3.10.0 | pillow 11.3.0", "tensorflow": "tensorflow 2.21.0 | keras 3.13.2", "gpu": "Tesla T4, 15360 MiB", "maquina": "2 núcleos de CPU, 13.3 GB de RAM, 121 GB livres em disco", "kernel": "padrão do ambiente | google.colab carregado e executável: True /usr/bin/python3", "notebooks": {"01_preprocessamento": {"ok": true, "minutos": 1.5, "tentativas": 2}, "02_cnn_do_zero": {"ok": true, "minutos": 38.0, "tentativas": 1}, "03_transfer_learning": {"ok": true, "minutos": 20.9, "tentativas": 1}, "03b_comparacao_estatistica": {"ok": true, "minutos": 0.8, "tentativas": 1}, "04_fairness": {"ok": true, "minutos": 1.5, "tentativas": 1}}, "manifesto_identico": true, "imagens_processadas": {"arquivos": 5552, "bytes": 71454717, "resumo": "c271e772ba7e74be", "identicas_as_locais": true}, "amostra_pixels": [["00000008_000.jpg", 0, 0.0, true], ["00000255_002.jpg", 0, 0.0, true], ["00000001_000.jpg", 0, 0.0, true], ["00000016_000.jpg", 0, 0.0, true], ["00000033_000.jpg", 0, 0.0, true], ["00000041_003.jpg", 0, 0.0, true]], "cnn_do_zero": {"local": {"acuracia": 0.7985, "precisao": 0.7869, "recall": 0.8085, "f1": 0.7975, "auc": 0.8742, "fn": 77, "fp": 88, "epocas": 40, "treino_min": 33.1, "tensorflow": "2.21.0"}, "colab": {"acuracia": 0.8046, "precisao": 0.7881, "recall": 0.8234, "f1": 0.8054, "auc": 0.8769, "fn": 71, "fp": 89, "epocas": 40, "treino_min": 37.5, "tensorflow": "2.21.0"}}, "resnet50": {"local": {"acuracia": 0.8071, "precisao": 0.7699, "recall": 0.8657, "f1": 0.815, "auc": 0.8816, "fn": 54, "fp": 104, "epocas": [8, 9], "treino_min": 31.6, "tensorflow": "2.21.0"}, "colab": {"acuracia": 0.8071, "precisao": 0.7877, "recall": 0.8308, "f1": 0.8087, "auc": 0.879, "fn": 68, "fp": 90, "epocas": [8, 11], "treino_min": 19.9, "tensorflow": "2.21.0"}}, "arquivos_iguais_aos_locais": {"comparacao_bootstrap.csv": false, "fairness_resumo.csv": false, "fairness_permutacao.csv": false, "fairness_mitigacao.csv": false, "fairness_faixa_replicacao.csv": false}, "duracao_total_min": 71.6, "notebooks_executados": ["01_preprocessamento.ipynb", "02_cnn_do_zero.ipynb", "03_transfer_learning.ipynb", "03b_comparacao_estatistica.ipynb", "04_fairness.ipynb"]}
 ```
+
+## Teste a partir do GitHub (20/11/2026, depois da publicação)
+
+Um notebook de teste clonou o repositório público no Google Colab e executou os notebooks 01, 03b e 04 com `jupyter nbconvert --execute`. Os notebooks 02 e 03, de treino, não foram repetidos. Saída do teste:
+
+```
+{'inicio_utc': '2026-11-21 01:08:17', 'commit': '3f80b37 2026-11-20 21:06:13 -0400', 'arquivos': 85, 'python': '3.13.18', 'gpu': 'nenhuma'}
+01_preprocessamento {'codigo': 0, 'minutos': 8.4}
+03b_comparacao_estatistica {'codigo': 0, 'minutos': 0.8}
+04_fairness {'codigo': 0, 'minutos': 1.7}
+download: 5552/5552 processadas | novas 5552 | em cache 0 | erros 0
+imagens_processadas: [5552, 71454717, "c271e772ba7e74be"]   imagens_iguais_a_referencia: true
+manifesto_identico: true   csv_de_dados_identicos: true   minutos_total: 10.9
+arquivos alterados: prints/01 a prints/05 e prints/15 (figuras regravadas pelos notebooks)
+```
+
+O servidor não recusou nenhuma imagem nesse teste, portanto as rodadas extras de `src/nih_remoto.py` não chegaram a ser acionadas.
