@@ -1,0 +1,52 @@
+{
+  "modelo": "resnet50_transfer",
+  "modelo_final": "etapa 2 (ajuste fino)",
+  "parametros": 24112513,
+  "treinaveis_etapa1": 524801,
+  "treinaveis_etapa2": 15478273,
+  "camadas_base": 175,
+  "camadas_descongeladas": 22,
+  "epocas_etapa1": 8,
+  "epocas_etapa2": 9,
+  "tempo_treino_min": 31.6,
+  "val_etapa1": {
+    "accuracy": 0.730434775352478,
+    "auc": 0.8224892616271973,
+    "loss": 0.5190271735191345,
+    "recall": 0.7532133460044861
+  },
+  "val_etapa2": {
+    "accuracy": 0.798757791519165,
+    "auc": 0.8837100863456726,
+    "loss": 0.44649460911750793,
+    "recall": 0.8534704446792603
+  },
+  "teste_limiar_0.5": {
+    "limiar": 0.5,
+    "acuracia": 0.8070818070818071,
+    "precisao": 0.7699115044247787,
+    "recall": 0.8656716417910447,
+    "f1": 0.8149882903981265,
+    "especificidade": 0.750599520383693,
+    "auc": 0.8816170943841941,
+    "tn": 313,
+    "fp": 104,
+    "fn": 54,
+    "tp": 348
+  },
+  "teste_limiar_sensivel": {
+    "limiar": 0.41,
+    "acuracia": 0.7973137973137974,
+    "precisao": 0.743801652892562,
+    "recall": 0.8955223880597015,
+    "f1": 0.8126410835214447,
+    "especificidade": 0.7026378896882494,
+    "auc": 0.8816170943841941,
+    "tn": 293,
+    "fp": 124,
+    "fn": 42,
+    "tp": 360
+  },
+  "tensorflow": "2.21.0",
+  "seed": 42
+}

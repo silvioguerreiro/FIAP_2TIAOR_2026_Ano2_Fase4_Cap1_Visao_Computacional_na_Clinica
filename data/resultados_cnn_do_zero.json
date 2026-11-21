@@ -1,0 +1,35 @@
+{
+  "modelo": "cnn_do_zero",
+  "parametros": 3452353,
+  "epocas": 40,
+  "melhor_epoca": 39,
+  "tempo_treino_min": 33.1,
+  "teste_limiar_0.5": {
+    "limiar": 0.5,
+    "acuracia": 0.7985347985347986,
+    "precisao": 0.7869249394673123,
+    "recall": 0.8084577114427861,
+    "f1": 0.7975460122699386,
+    "especificidade": 0.7889688249400479,
+    "auc": 0.874160373193982,
+    "tn": 329,
+    "fp": 88,
+    "fn": 77,
+    "tp": 325
+  },
+  "teste_limiar_sensivel": {
+    "limiar": 0.36,
+    "acuracia": 0.7936507936507936,
+    "precisao": 0.7432150313152401,
+    "recall": 0.8855721393034826,
+    "f1": 0.8081725312145289,
+    "especificidade": 0.7050359712230215,
+    "auc": 0.874160373193982,
+    "tn": 294,
+    "fp": 123,
+    "fn": 46,
+    "tp": 356
+  },
+  "tensorflow": "2.21.0",
+  "seed": 42
+}

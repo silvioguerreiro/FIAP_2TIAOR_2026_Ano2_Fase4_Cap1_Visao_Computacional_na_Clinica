@@ -1,0 +1,25 @@
+conjunto,modelo,faixa,n,positivas,recall,FPR,AUC
+validação,ResNet50,0-17,30,10,0.9,0.25,0.89
+validação,ResNet50,18-39,219,101,0.891,0.178,0.927
+validação,ResNet50,40-59,331,152,0.855,0.24,0.883
+validação,ResNet50,60+,225,126,0.817,0.364,0.835
+validação,CNN do zero,0-17,30,10,0.9,0.25,0.845
+validação,CNN do zero,18-39,219,101,0.782,0.153,0.899
+validação,CNN do zero,40-59,331,152,0.77,0.184,0.886
+validação,CNN do zero,60+,225,126,0.778,0.293,0.817
+validação,média dos dois,0-17,30,10,1.0,0.1,0.96
+validação,média dos dois,18-39,219,101,0.871,0.169,0.932
+validação,média dos dois,40-59,331,152,0.868,0.223,0.905
+validação,média dos dois,60+,225,126,0.841,0.333,0.835
+teste,ResNet50,0-17,41,18,0.667,0.435,0.659
+teste,ResNet50,18-39,237,127,0.882,0.218,0.89
+teste,ResNet50,40-59,342,154,0.857,0.234,0.898
+teste,ResNet50,60+,199,103,0.893,0.271,0.866
+teste,CNN do zero,0-17,41,18,0.889,0.261,0.865
+teste,CNN do zero,18-39,237,127,0.787,0.136,0.904
+teste,CNN do zero,40-59,342,154,0.792,0.234,0.863
+teste,CNN do zero,60+,199,103,0.845,0.24,0.87
+teste,média dos dois,0-17,41,18,0.778,0.435,0.819
+teste,média dos dois,18-39,237,127,0.866,0.155,0.913
+teste,média dos dois,40-59,342,154,0.838,0.197,0.894
+teste,média dos dois,60+,199,103,0.903,0.25,0.883

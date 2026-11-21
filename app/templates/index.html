@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CardioIA: Assistente Cardiológico Virtual</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+<header>
+  <div class="topo">
+    <h1>CardioIA</h1>
+    <p>Assistente Cardiológico Virtual: triagem de cardiomegalia em radiografia de tórax</p>
+  </div>
+</header>
+<div class="aviso" role="note"><strong>Protótipo acadêmico, sem validade diagnóstica.</strong> Não envie exames de pacientes reais identificados. O resultado não substitui a avaliação de um médico.</div>
+
+<main>
+  <section class="cartao">
+    <h2>1. Envie uma radiografia de tórax</h2>
+    <form method="post" action="{{ url_for('prever_html') }}" enctype="multipart/form-data">
+      <label class="upload" for="imagem">
+        <input type="file" id="imagem" name="imagem" accept=".png,.jpg,.jpeg" required>
+        <span>Imagem frontal de tórax, em PNG ou JPG, até 10 MB</span>
+      </label>
+      <button type="submit">Analisar imagem</button>
+    </form>
+    {% if exemplos %}
+    <p class="sub">Ou teste com uma imagem do conjunto de teste (dados públicos do NIH, não usados no treino):</p>
+    <div class="exemplos">
+      {% for e in exemplos %}
+      <a class="miniatura" href="{{ url_for('exemplo', nome=e) }}" title="Analisar exemplo {{ loop.index }}">
+        <img src="{{ url_for('static', filename='exemplos/' + e) }}" alt="Radiografia de exemplo {{ loop.index }}">
+        <span>Exemplo {{ loop.index }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if erro %}<p class="erro" role="alert">{{ erro }}</p>{% endif %}
+  </section>
+
+  {% if resultado %}
+  <section class="cartao resultado {{ resultado.faixa }}" aria-live="polite">
+    <h2>2. Resultado</h2>
+    <div class="grade">
+      <img class="rx" src="data:image/jpeg;base64,{{ resultado.miniatura }}" alt="Radiografia analisada">
+      <div>
+        <p class="rotulo">{{ resultado.titulo }}</p>
+        <p class="classe">Classe prevista: <strong>{{ resultado.classe }}</strong></p>
+        <p class="prob">Probabilidade de cardiomegalia: <strong>{{ resultado.percentual }}%</strong></p>
+        <div class="barra" aria-hidden="true">
+          <div class="preenchimento" style="width: {{ '%.1f' % (resultado.probabilidade * 100) }}%"></div>
+          <div class="marca" style="left: {{ cfg.limiar_sensivel * 100 }}%" title="Início da zona de incerteza"></div>
+          <div class="marca" style="left: {{ cfg.limiar_padrao * 100 }}%" title="Limite para indicar cardiomegalia"></div>
+        </div>
+        <p class="legenda">Abaixo de {{ '%.0f' % (cfg.limiar_sensivel * 100) }}%: sem achado. De {{ '%.0f' % (cfg.limiar_sensivel * 100) }}% a {{ '%.0f' % (cfg.limiar_padrao * 100) }}%: inconclusivo. A partir de {{ '%.0f' % (cfg.limiar_padrao * 100) }}%: sugestivo de cardiomegalia.</p>
+        <p class="explicacao">{{ resultado.explicacao }}</p>
+        <p class="sub">Arquivo: {{ resultado.arquivo }}. Modelo: {{ resultado.modelo }}.</p>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="cartao">
+    <h2>Como interpretar</h2>
+    <ul>
+      <li><strong>O que o modelo faz:</strong> estima a probabilidade de a radiografia mostrar cardiomegalia (coração aumentado). Ele não avalia nenhuma outra alteração.</li>
+      <li><strong>Quanto ele acerta:</strong> no conjunto de teste ({{ cfg.metricas.n_teste }} imagens de pacientes não vistos no treino), com limite de {{ '%.0f' % (cfg.limiar_padrao * 100) }}%, a acurácia foi de {{ ('%.1f' % (cfg.metricas.acuracia * 100)) | replace('.', ',') }}%. De cada 100 casos reais de cardiomegalia, o modelo identificou {{ '%.0f' % (cfg.metricas.recall * 100) }}. De cada 100 alertas emitidos, {{ '%.0f' % (cfg.metricas.precisao * 100) }} estavam corretos.</li>
+      <li><strong>Ele erra:</strong> pode deixar passar casos reais (falso negativo) e pode alertar sem necessidade (falso positivo). A zona inconclusiva existe para reduzir os casos que passam despercebidos.</li>
+      <li><strong>Limitações:</strong> treinado com imagens de um único hospital, com rótulos extraídos automaticamente de laudos, em um conjunto com metade de casos positivos, proporção muito maior que a encontrada na prática.</li>
+      <li><strong>Menores de 18 anos:</strong> o desempenho não está validado para crianças e adolescentes, grupo com poucas imagens na base de dados.</li>
+    </ul>
+  </section>
+</main>
+<footer>CardioIA Fase 4, FIAP, turma 2TIAOR. Dados: NIH Chest X-ray (NIH Clinical Center). Uso exclusivamente educacional.</footer>
+</body>
+</html>

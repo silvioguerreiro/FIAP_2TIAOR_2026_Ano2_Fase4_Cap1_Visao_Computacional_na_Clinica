@@ -1,0 +1,4 @@
+atributo,igualdade de oportunidade (dif. recall),dif. FPR,odds equalizadas,paridade demografica (dif. selecao)
+sexo,0.0,0.008,0.008,0.08
+faixa,0.227,0.217,0.227,0.078
+visao,0.028,0.042,0.042,0.053

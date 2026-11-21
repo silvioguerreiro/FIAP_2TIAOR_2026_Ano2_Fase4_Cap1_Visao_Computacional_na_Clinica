@@ -1,0 +1,64 @@
+1
+00:00:05,500 --> 00:00:15,500
+O app envia a radiografia e recebe do backend a categoria detectada pela CNN.
+
+2
+00:00:15,500 --> 00:00:21,000
+Este é o CardioIA, app feito em React Native com Expo. A gravação usa a versão web, em tela de celular.
+
+3
+00:00:21,000 --> 00:00:26,500
+Ao abrir, o app consulta o backend Flask e carrega as radiografias de exemplo, que vêm do conjunto de teste.
+
+4
+00:00:26,500 --> 00:00:32,267
+Ao tocar no Exemplo 3, a imagem é analisada no backend pela CNN treinada na atividade (ResNet50 com Transfer Learning).
+
+5
+00:00:32,267 --> 00:00:38,267
+Categoria detectada: Cardiomegalia, com 88% de probabilidade. O cartão fica vermelho quando o achado é sugestivo.
+
+6
+00:00:38,267 --> 00:00:44,267
+A barra mostra os limites de decisão, e o texto explica o resultado em linguagem simples.
+
+7
+00:00:44,267 --> 00:00:49,833
+Segundo teste, com o Exemplo 2.
+
+8
+00:00:49,833 --> 00:00:56,833
+Probabilidade de 34%, abaixo do limite de 41%. Categoria detectada: Sem achado, em verde.
+
+9
+00:00:56,833 --> 00:01:03,067
+Terceiro teste: o botão Escolher imagem envia um arquivo do dispositivo pela rota POST /api/predict.
+
+10
+00:01:03,067 --> 00:01:09,567
+Resultado de 47%. Entre 41% e 50% o app mostra Inconclusivo, em laranja, e recomenda revisão.
+
+11
+00:01:09,567 --> 00:01:16,067
+Pelo rótulo do dataset, esta imagem é um caso de cardiomegalia. A faixa inconclusiva evita que ele seja descartado.
+
+12
+00:01:16,067 --> 00:01:22,033
+O modelo também erra. O Exemplo 1 é rotulado como Sem achado no dataset.
+
+13
+00:01:22,033 --> 00:01:29,533
+O app indicou Cardiomegalia, com 97%: um falso positivo, mantido na demonstração para mostrar esse limite.
+
+14
+00:01:29,533 --> 00:01:36,533
+No conjunto de teste, de cada 100 casos reais o modelo identificou 87, e de cada 100 alertas 77 estavam corretos.
+
+15
+00:01:36,533 --> 00:01:43,033
+O app avalia apenas cardiomegalia e não está validado para menores de 18 anos. O resultado não substitui o médico.
+
+16
+00:01:43,033 --> 00:01:52,167
+Por fim, a integração: o endereço do backend Flask é configurável, e o app confirma a conexão e o modelo em uso.
+

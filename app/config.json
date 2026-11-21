@@ -1,0 +1,15 @@
+{
+  "modelo": "../models/resnet50_final.keras",
+  "nome_modelo": "ResNet50 com Transfer Learning (ajuste fino)",
+  "preprocessamento": "resnet50",
+  "limiar_padrao": 0.5,
+  "limiar_sensivel": 0.41,
+  "metricas": {
+    "n_teste": 819,
+    "acuracia": 0.8071,
+    "precisao": 0.7699,
+    "recall": 0.8657,
+    "f1": 0.815,
+    "auc": 0.8816
+  }
+}

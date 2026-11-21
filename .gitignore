@@ -1,0 +1,14 @@
+data/raw/imagens_originais/
+data/raw/indice_zip_nih.json
+data/processed/
+*.keras
+*.h5
+__pycache__/
+.ipynb_checkpoints/
+models/
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/.claude/
+mobile/video/_trabalho/
+.DS_Store

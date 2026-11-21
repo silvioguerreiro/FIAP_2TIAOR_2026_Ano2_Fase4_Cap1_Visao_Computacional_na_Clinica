@@ -1,0 +1,33 @@
+{
+  "dataset": "NIH Chest X-ray (ChestX-ray14)",
+  "fonte": "huggingface.co/datasets/alkzar90/NIH-Chest-X-ray-dataset",
+  "seed": 42,
+  "img_size": 224,
+  "classes": [
+    "sem_achado",
+    "cardiomegalia"
+  ],
+  "total_imagens": 5552,
+  "total_pacientes": 4342,
+  "por_split": {
+    "train": {
+      "sem_achado": 1943,
+      "cardiomegalia": 1985
+    },
+    "val": {
+      "sem_achado": 416,
+      "cardiomegalia": 389
+    },
+    "test": {
+      "sem_achado": 417,
+      "cardiomegalia": 402
+    }
+  },
+  "pacientes_por_split": {
+    "train": 3039,
+    "val": 651,
+    "test": 652
+  },
+  "media_treino": 0.4977,
+  "desvio_treino": 0.2498
+}

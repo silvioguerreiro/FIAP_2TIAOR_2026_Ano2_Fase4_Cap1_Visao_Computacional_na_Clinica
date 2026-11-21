@@ -1,0 +1,45 @@
+{
+  "resnet50": {
+    "com_jpeg_reproduz_notebook_dif_max": 6.038986211098774e-08,
+    "dif_abs_media": 0.024039581418037415,
+    "dif_abs_mediana": 0.011356115341186523,
+    "dif_abs_p95": 0.08452270179986954,
+    "dif_abs_max": 0.1891046166419983,
+    "dif_media_com_sinal_sem_menos_com": 0.00523056136444211,
+    "imagens_que_trocam_de_lado_no_limiar_0.5": 19,
+    "metricas_com_jpeg": {
+      "acuracia": 0.8070818070818071,
+      "recall": 0.8656716417910447,
+      "especificidade": 0.750599520383693,
+      "auc": 0.8816170943841941
+    },
+    "metricas_sem_jpeg": {
+      "acuracia": 0.7985347985347986,
+      "recall": 0.8681592039800995,
+      "especificidade": 0.7314148681055156,
+      "auc": 0.8794039395349392
+    },
+    "imagens_que_trocam_de_faixa_no_prototipo": 30
+  },
+  "cnn_do_zero": {
+    "com_jpeg_reproduz_notebook_dif_max": 3.191925048717792e-07,
+    "dif_abs_media": 0.0009353144560009241,
+    "dif_abs_mediana": 0.0005649328231811523,
+    "dif_abs_p95": 0.0032366602681577206,
+    "dif_abs_max": 0.007256418466567993,
+    "dif_media_com_sinal_sem_menos_com": 0.00027070826035924256,
+    "imagens_que_trocam_de_lado_no_limiar_0.5": 2,
+    "metricas_com_jpeg": {
+      "acuracia": 0.7985347985347986,
+      "recall": 0.8084577114427861,
+      "especificidade": 0.7889688249400479,
+      "auc": 0.874160373193982
+    },
+    "metricas_sem_jpeg": {
+      "acuracia": 0.800976800976801,
+      "recall": 0.8109452736318408,
+      "especificidade": 0.7913669064748201,
+      "auc": 0.874052996408843
+    }
+  }
+}
